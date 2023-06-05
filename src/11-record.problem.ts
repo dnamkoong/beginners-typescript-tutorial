@@ -1,7 +1,17 @@
 import { expect, it } from "vitest";
 
 const createCache = () => {
-  const cache = {};
+  // Solution ONE
+  interface Cache {
+    [id: string]: string
+  }
+  const cache: Cache = {};
+  // Solution TWO https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type
+  // const cache: Record<string, string> = {};
+  // Solution THREE
+  // const cache: {
+  //   [index: number]: string;
+  // } = {};
 
   const add = (id: string, value: string) => {
     cache[id] = value;
