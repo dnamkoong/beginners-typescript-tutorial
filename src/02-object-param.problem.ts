@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-export const addTwoNumbers = (params) => {
+export const addTwoNumbers = (params: { first: number, second: number }) => {
   return params.first + params.second;
 };
 
@@ -19,3 +19,20 @@ it("Should add the two numbers together", () => {
     }),
   ).toEqual(30);
 });
+
+// Solution TWO:
+// type can represent anything
+type AddTwoNumbersArgs = {
+  first: number;
+  second: number;
+};
+export const addTwoNumbers2 = (params: AddTwoNumbersArgs) => {}
+
+// Solution THREE:
+// interface can represent mostly objects
+interface AddTwoNumbersArgs2 {
+  first: number;
+  second: number;
+}
+
+export const addTwoNumbers3 = (params: AddTwoNumbersArgs2) => {}
